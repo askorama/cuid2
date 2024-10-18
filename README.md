@@ -1,3 +1,7 @@
+This is a fork of https://github.com/paralleldrive/cuid2
+
+Only change is removing use of literal BigInt notation `n`. 
+
 # Cuid2
 
 Secure, collision-resistant ids optimized for horizontal scaling and performance. Next generation UUIDs.
@@ -24,17 +28,17 @@ Need unique ids in your app? Forget UUIDs and GUIDs which often collide in large
 ## Getting Started
 
 ```
-npm install --save @paralleldrive/cuid2
+npm install --save @orama/cuid2
 ```
 
 Or
 
 ```
-yarn add @paralleldrive/cuid2
+yarn add @orama/cuid2
 ```
 
 ```js
-import { createId } from '@paralleldrive/cuid2';
+import { createId } from '@orama/cuid2';
 
 const ids = [
   createId(), // 'tz4a98xxat96iws9zmbrgj3a'
@@ -48,7 +52,7 @@ Using Jest? Jump to [Using with Jest](#using-in-jest).
 ### Configuration
 
 ```js
-import { init } from '@paralleldrive/cuid2';
+import { init } from '@orama/cuid2';
 
 // The init function returns a custom createId function with the specified
 // configuration. All configuration properties are optional.
@@ -74,7 +78,7 @@ console.log(
 ### Validation
 
 ```js
-import { createId, isCuid } from '@paralleldrive/cuid2';
+import { createId, isCuid } from '@orama/cuid2';
 
 
 console.log(
@@ -210,7 +214,7 @@ Different use-cases have different needs for entropy resistance. Sometimes, a sh
 By default, you'd need to generate `~4.0268498e+18` ids to reach a 50% chance of collision, and at maximum length, you'd need to generate `~6.7635614e+24` ids to reach 50% odds of collision. To use a custom length, import the `init` function, which takes configuration options:
 
 ```js
-import { init } from '@paralleldrive/cuid2';
+import { init } from '@orama/cuid2';
 const length = 10; // 50% odds of collision after ~51,386,368 ids
 const cuid = init({ length });
 console.log(cuid()); // nw8zzfaa4v
